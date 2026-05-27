@@ -1,0 +1,243 @@
+/* SplashScreen.css */
+.splash {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-void);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 100;
+}
+
+/* ── Nebula background layers ── */
+.splash__nebula {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.splash__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  animation: pulseGlow 5s ease-in-out infinite;
+}
+
+.splash__orb--pink {
+  width: 340px;
+  height: 340px;
+  background: radial-gradient(circle, rgba(239,146,187,0.28) 0%, transparent 70%);
+  top: -60px;
+  right: -80px;
+  animation-delay: 0s;
+}
+
+.splash__orb--blue {
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(100,207,252,0.18) 0%, transparent 70%);
+  bottom: -40px;
+  left: -60px;
+  animation-delay: 2.5s;
+}
+
+.splash__orb--red {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(236,69,56,0.12) 0%, transparent 70%);
+  bottom: 30%;
+  right: 10%;
+  animation-delay: 1.2s;
+}
+
+/* ── Decorative rings ── */
+.splash__rings {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.splash__ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(239,146,187,0.06);
+  animation: pulseGlow 6s ease-in-out infinite;
+}
+
+.splash__ring:nth-child(1) { width: 280px; height: 280px; animation-delay: 0s; }
+.splash__ring:nth-child(2) { width: 420px; height: 420px; animation-delay: 1s; border-color: rgba(239,146,187,0.04); }
+.splash__ring:nth-child(3) { width: 580px; height: 580px; animation-delay: 2s; border-color: rgba(100,207,252,0.03); }
+
+/* ── Content wrapper ── */
+.splash__content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: var(--spacing-xl);
+}
+
+/* ── Logo symbol ── */
+.splash__symbol {
+  margin-bottom: 28px;
+  opacity: 0;
+  animation: scaleIn 1.2s var(--ease-smooth) 0.3s forwards;
+}
+
+.splash__symbol-inner {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(239,146,187,0.15) 0%, rgba(100,207,252,0.08) 100%);
+  border: 1px solid rgba(239,146,187,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pulsePink 3.5s ease-in-out infinite;
+  position: relative;
+}
+
+.splash__symbol-heart {
+  font-size: 28px;
+  animation: heartbeat 2.5s ease-in-out 1.5s infinite;
+  display: block;
+  filter: drop-shadow(0 0 12px rgba(236,69,56,0.6));
+}
+
+/* ── Title ── */
+.splash__title {
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 12vw, 4.8rem);
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: 0.08em;
+  direction: ltr;
+  line-height: 1;
+  margin-bottom: 6px;
+
+  background: linear-gradient(
+    135deg,
+    #fff 0%,
+    var(--color-pink) 35%,
+    var(--color-pink-soft) 55%,
+    var(--color-blue) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite, fadeDown 1s var(--ease-smooth) 0.6s both;
+}
+
+/* ── Sub-tagline ── */
+.splash__tagline {
+  font-family: var(--font-persian);
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.22em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  direction: ltr;
+  margin-bottom: 48px;
+  opacity: 0;
+  animation: fadeIn 0.8s ease 1.2s forwards;
+}
+
+/* ── Persian quote ── */
+.splash__quote-wrap {
+  opacity: 0;
+  animation: fadeUp 1s var(--ease-smooth) 1.4s forwards;
+  text-align: center;
+  max-width: 300px;
+}
+
+.splash__quote {
+  font-family: var(--font-persian);
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.9;
+  direction: rtl;
+  position: relative;
+  padding: 0 20px;
+}
+
+.splash__quote::before,
+.splash__quote::after {
+  content: '❝';
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  line-height: 0;
+  position: absolute;
+  color: rgba(239,146,187,0.25);
+  top: 12px;
+}
+
+.splash__quote::before { right: -4px; }
+.splash__quote::after  { content: '❞'; left: -4px; }
+
+.splash__quote-attr {
+  margin-top: 12px;
+  font-family: var(--font-persian);
+  font-size: 0.78rem;
+  color: var(--color-pink);
+  opacity: 0.7;
+  letter-spacing: 0.04em;
+}
+
+/* ── Progress bar ── */
+.splash__progress-wrap {
+  position: absolute;
+  bottom: 52px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  opacity: 0;
+  animation: fadeIn 0.6s ease 1.8s forwards;
+}
+
+.splash__progress-track {
+  height: 1px;
+  background: rgba(239,146,187,0.12);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.splash__progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-pink), var(--color-blue));
+  border-radius: var(--radius-full);
+  animation: progressFill 2.4s var(--ease-breathe) 2s forwards;
+}
+
+@keyframes progressFill {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+
+/* ── Exit animation ── */
+.splash--exit {
+  animation: splashExit 0.9s var(--ease-smooth) forwards;
+}
+
+@keyframes splashExit {
+  0%   { opacity: 1; transform: scale(1); filter: blur(0px); }
+  100% { opacity: 0; transform: scale(1.06); filter: blur(8px); }
+}
+
+/* ── Floating dots ── */
+.splash__dots {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}

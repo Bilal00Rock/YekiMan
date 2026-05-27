@@ -1,0 +1,15 @@
+/* ParticleField.css */
+.particle-field {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+ 
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  animation: particleDrift var(--duration) var(--delay) var(--ease-breathe) infinite;
+}
+ 

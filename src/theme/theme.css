@@ -1,0 +1,30 @@
+:root {
+
+  /* Backgrounds */
+  --bg-primary: #0b0b0f;
+  --bg-secondary: #15151b;
+  --bg-card: rgba(255,255,255,0.05);
+
+  /* Text */
+  --text-primary: #ffffff;
+  --text-secondary: #cfcfd6;
+
+  /* Main Colors */
+  --pink: #EF92BB;
+  --blue: #64CFFC;
+  --red: #EC4538;
+
+  /* Effects */
+  --glass-border: rgba(255,255,255,0.08);
+
+  --shadow-soft:
+    0 10px 40px rgba(0,0,0,0.35);
+
+  --shadow-pink:
+    0 0 30px rgba(239,146,187,0.25);
+
+  --shadow-blue:
+    0 0 30px rgba(100,207,252,0.2);
+
+  --radius-lg: 24px;
+}

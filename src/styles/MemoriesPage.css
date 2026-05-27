@@ -1,0 +1,208 @@
+.memories-container {
+
+  min-height: 100vh;
+
+  padding: 28px 18px 120px;
+
+  position: relative;
+
+  z-index: 2;
+
+  font-family: var(--font-persian);
+
+  color: var(--text-primary);
+
+  overflow: hidden;
+}
+
+/* SOFT VIGNETTE (romantic feel) */
+.memories-container::before {
+
+  content: "";
+
+  position: fixed;
+
+  inset: 0;
+
+  background: radial-gradient(
+      circle at top,
+      rgba(239,146,187,0.08),
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at bottom,
+      rgba(100,207,252,0.06),
+      transparent 60%
+    ),
+    var(--bg-primary);
+
+  z-index: -3;
+}
+
+/* TITLE (like whispered memory) */
+.memories-title {
+
+  font-size: 18px;
+
+  text-align: center;
+
+  margin-bottom: 28px;
+
+  color: rgba(255,255,255,0.85);
+
+  letter-spacing: 1px;
+
+  font-weight: 500;
+
+  font-family: var(--font-persian);
+}
+
+/* LAYOUT = not strict grid anymore */
+.memories-grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 14px;
+}
+
+/* BASE CARD */
+.memory-card {
+
+  position: relative;
+
+  border-radius: 22px;
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(20px);
+
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+
+  transition: all 0.4s ease;
+
+  transform: translateZ(0);
+}
+
+/* hover = like breathing memory */
+.memory-card:hover {
+
+  transform: scale(1.03) translateY(-4px);
+
+  filter: brightness(1.1);
+}
+
+/* soft gradient overlay */
+.memory-card::after {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background: inherit;
+
+  opacity: 0.75;
+
+  z-index: 0;
+}
+
+/* INNER */
+.memory-card-inner {
+
+  position: relative;
+
+  z-index: 2;
+
+  height: 100%;
+
+  padding: 12px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+}
+
+/* IMAGE (memory fragment) */
+.memory-img {
+
+  width: 38px;
+
+  height: 38px;
+
+  border-radius: 10px;
+
+  object-fit: cover;
+
+  opacity: 0.9;
+
+  filter: saturate(1.2);
+}
+
+/* TITLE */
+.memory-text h3 {
+
+  font-size: 13px;
+
+  color: #fff;
+
+  font-weight: 600;
+
+  font-family: var(--font-persian);
+}
+
+/* SUBTEXT */
+.memory-text p {
+
+  font-size: 11px;
+
+  color: rgba(255,255,255,0.75);
+
+  line-height: 1.5;
+
+  font-family: var(--font-persian);
+}
+
+/* ❤️ MAKE VARIETY (IMPORTANT FOR ROMANCE) */
+
+/* first card = big emotional anchor */
+.memory-card:nth-child(1) {
+
+  grid-column: span 2;
+
+  height: 180px;
+}
+
+/* second card = slightly taller */
+.memory-card:nth-child(2) {
+
+  height: 160px;
+}
+
+/* third card = smaller intimate memory */
+.memory-card:nth-child(3) {
+
+  height: 140px;
+
+  opacity: 0.95;
+}
+
+/* EMPTY */
+.empty-state {
+
+  text-align: center;
+
+  margin-top: 60px;
+
+  color: rgba(255,255,255,0.6);
+
+  font-family: var(--font-persian);
+}

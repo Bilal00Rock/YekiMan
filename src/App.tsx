@@ -45,6 +45,7 @@ import "./theme/theme.css";
 import "./theme/global.css";
 import FloatingNavbar from "./components/FloatingNavbar";
 import MemoryChat from "./pages/MemoryChat";
+import PromisesPage from "./pages/PromisesPage";
 setupIonicReact();
  
 
@@ -78,6 +79,9 @@ const App: React.FC = () => (
           <Route exact path="/memory/:id">
             <MemoryChat />
           </Route>
+          <Route exact path="/promises">
+          <PromisesPage />
+        </Route>
         </IonRouterOutlet>
       </IonTabs>
 

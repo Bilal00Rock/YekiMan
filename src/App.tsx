@@ -46,6 +46,7 @@ import "./theme/global.css";
 import FloatingNavbar from "./components/FloatingNavbar";
 import MemoryChat from "./pages/MemoryChat";
 setupIonicReact();
+ 
 
 const App: React.FC = () => (
   <IonApp>
